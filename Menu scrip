@@ -1,0 +1,33 @@
+# Script to create menus and take action according to that selected menu item.
+#
+#
+while :
+do
+clear
+echo "----------------------------------------------"
+echo " * * * * * * * Main Menu * * * * * * * * * * "
+echo "----------------------------------------------"
+echo "[1] Show Disk Space"
+echo "[2] Login to other Server"
+echo "[3] Change your password"
+echo "[4] Show All Running Process"
+echo "[5] All open ports"
+echo "[6] Show All JAVA APPS"
+echo "[7] Facility to kill a APP"
+echo "[8] Exit/stop"
+echo "----------------------------------------------"
+echo -n "Enter your menu choice [1-9]:"
+read yourch
+case $yourch in
+1) echo "Disk Space"; df -h ; echo "press a key. . ." ; read ;;
+2) echo "Login to other Server" ; ssh "serverIP" ; echo "Press a key. . ." ; read ;;
+3) echo "Change Password"; passwd username ; echo "Press a key. . ." ; read ;;
+4) echo " Running Process"; top ; echo "Press a key. . ." ; read ;;
+5) echo "Open Ports"; nmap localhost ; echo "Press a key. . ."; read ;;
+6) echo "Java APP"; ps -aux|grep java ; echo "Press a key. . ."; read ;;
+7) echo "Kill APP"; kill -9 $yourch ; echo "Press a key. . ."; read ;;
+8) exit 0 ;;
+*) echo "Opps!!! Please select choice 1,2,3,4,5,6,7 or 8";
+echo "Press a key. . ." ; read ;;
+esac
+done
